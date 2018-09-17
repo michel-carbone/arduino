@@ -2,7 +2,6 @@
 #include <LiquidCrystal.h>
 
 /*******************************************************
-
 This program will test the LCD panel and the buttons
 Mark Bramwell, July 2010
 Edits by Michel Carbone, Augustus 2018
@@ -59,7 +58,6 @@ int read_LCD_buttons()
  if (adc_key_in < 790)  return btnSELECT;   
 */
 
-
  return btnNONE;  // when all others fail, return this...
 }
 
@@ -75,42 +73,40 @@ void loop()
  lcd.setCursor(9,1);            // move cursor to second line "1" and 9 spaces over
  lcd.print(millis()/1000);      // display seconds elapsed since power-up
 
-
  lcd.setCursor(0,1);            // move to the begining of the second line
  lcd_key = read_LCD_buttons();  // read the buttons
 
  switch (lcd_key)               // depending on which button was pushed, we perform an action
  {
-   case btnRIGHT:
-     {
-     lcd.print("RIGHT ");
-     break;
-     }
-   case btnLEFT:
-     {
-     lcd.print("LEFT   ");
-     break;
-     }
-   case btnUP:
-     {
-     lcd.print("UP    ");
-     break;
-     }
-   case btnDOWN:
-     {
-     lcd.print("DOWN  ");
-     break;
-     }
-   case btnSELECT:
-     {
-     lcd.print("SELECT");
-     break;
-     }
-     case btnNONE:
-     {
-     lcd.print("NONE  ");
-     break;
-     }
+  case btnRIGHT:
+  {
+   lcd.print("RIGHT ");
+   break;
+  }
+  case btnLEFT:
+  {
+   lcd.print("LEFT   ");
+   break;
+  }
+  case btnUP:
+  {
+   lcd.print("UP    ");
+   break;
+  }
+  case btnDOWN:
+  {
+   lcd.print("DOWN  ");
+   break;
+  }
+  case btnSELECT:
+  {
+   lcd.print("SELECT");
+   break;
+  }
+  case btnNONE:
+  {
+   lcd.print("NONE  ");
+   break;
+  }
  }
-
 }
