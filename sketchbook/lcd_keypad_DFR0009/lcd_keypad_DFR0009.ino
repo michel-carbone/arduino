@@ -35,7 +35,9 @@ int adc_key_in  = 0; //analog value read by the ADC
 #define btnSELECT 4
 #define btnNONE   5 // default value
 
-// read the buttons
+// function read_LCD_buttons()
+// perform a ADC conversion on A0; the read value correspond to the LCD shield button
+// return an integer value corresponding to the pressed button and used by "int lcd_key"
 int read_LCD_buttons()
 {
  adc_key_in = analogRead(LCD_AO_AnalogButtons);      // read the value from the sensor 
@@ -61,13 +63,17 @@ int read_LCD_buttons()
  return btnNONE;  // when all others fail, return this...
 }
 
+// function setup()
+// is call automaticaly at startup and init all libraries and ports if needed 
 void setup()
 {
  lcd.begin(16, 2);              // start the library
  lcd.setCursor(0,0);
  lcd.print("Push the buttons"); // print a simple message
 }
- 
+
+ // function loop()
+ // is call automaticaly after setup() and run forever after setup
 void loop()
 {
  lcd.setCursor(9,1);            // move cursor to second line "1" and 9 spaces over
