@@ -4,7 +4,7 @@ calculation, e.g. integer addition, float addition, etc
 Michel Carbone, September 2018
 ********************************************************/
 // pre-processor directive for debugging
-#define DEBUG 1 // 1 = debug by serial print values
+#define DEBUG 0 // 1 = debug by serial print values
 
 // variables for timing calculation
 long tStart = 0;    // time in us before calculation
@@ -25,21 +25,13 @@ void setup() {
   tStart = micros();
   int ret_val = additions_uint();
   tStop = micros();
-  tTime = tStop-tStart;
-  Serial.print("Time for additions_uint() in (us): ");
-  Serial.print(tTime);
-  Serial.print("; number of loop:");
-  Serial.println(ret_val);
-
+  print_output(ret_val, "additions_uint");
+  
   // test additions_int()
   tStart = micros();
   ret_val = additions_int();
-  tStop = micros();
-  tTime = tStop-tStart;
-  Serial.print("Time for additions_int() in (us): ");
-  Serial.print(tTime);
-  Serial.print("; number of loop:");
-  Serial.println(ret_val);
+  tStop = micros(); // measure stop time before call of function...
+  print_output(ret_val, "additions_int");
 }
 
 // function loop()
@@ -51,6 +43,18 @@ void loop() {
    */
 }
 
+// function print_output(int , String)
+// calc stop time and duration and print results to console
+void print_output(int fct_ret_val, String fct_name){
+  //tStop = micros(); // removed here because call to function seems to introduce a delay of 20us TBC
+  tTime = tStop-tStart;
+  Serial.print("Time for ");
+  Serial.print(fct_name);
+  Serial.print("() in (us): ");
+  Serial.print(tTime);
+  Serial.print("; number of loop:");
+  Serial.println(fct_ret_val);
+}
 // function additions_uint() add two unsigned integers 32766 times
 int additions_uint(){
   unsigned int sum = 0;
