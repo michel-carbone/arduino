@@ -32,6 +32,12 @@ void setup() {
   ret_val = additions_int();
   tStop = micros(); // measure stop time before call of function...
   print_output(ret_val, "additions_int");
+
+  // test additions_float()
+  tStart = micros();
+  ret_val = additions_float();
+  tStop = micros(); // measure stop time before call of function...
+  print_output(ret_val, "additions_float");
 }
 
 // function loop()
@@ -76,6 +82,22 @@ int additions_int(){
   for (i=0; i<32766; i++)
   {
     sum = i+i;
+    #if DEBUG == 1
+    Serial.println(sum);
+    #endif
+  }
+  return i;
+}
+
+// function additions_int() add two float 32766 times
+int additions_float(){
+  float sum = 0;
+  int i = 0;
+  float j = 0;
+  for (i=0; i<32766; i++)
+  {
+    j=i;
+    sum = j+j;
     #if DEBUG == 1
     Serial.println(sum);
     #endif
