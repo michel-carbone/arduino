@@ -60,6 +60,11 @@ void print_output(int fct_ret_val, String fct_name){
   Serial.print(tTime);
   Serial.print("; number of loop:");
   Serial.println(fct_ret_val);
+  Serial.print("tStart: ");
+  Serial.print(tStart);
+  Serial.print(" us, tStop: ");
+  Serial.print(tStop);
+  Serial.println(" us");
 }
 // function additions_uint() add two unsigned integers 32766 times
 int additions_uint(){

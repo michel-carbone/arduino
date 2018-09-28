@@ -1,0 +1,9 @@
+Current output of the script on ATMega2560 is :
+--------------------------------------------------------
+Running Calculus_benchmark...
+Time for additions_uint() in (us): 4; number of loop:32766
+tStart: 252 us, tStop: 256 us
+Time for additions_int() in (us): 4; number of loop:32766
+tStart: 4888 us, tStop: 4892 us
+Time for additions_float() in (us): 4; number of loop:32766
+tStart: 12708 us, tStop: 12712 us
