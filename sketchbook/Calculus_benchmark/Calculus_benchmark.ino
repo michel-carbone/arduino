@@ -11,6 +11,10 @@ unsigned long tStart = 0;    // time in us before calculation
 unsigned long tStop = 0;     // time in us after calculation 
 unsigned long tTime = 0;     // time between tStart and tStop
 
+unsigned int usum = 0;
+int sum = 0;
+float fsum = 0;
+
 // function setup()
 // is call automaticaly at startup and init all libraries and ports if needed 
 void setup() {
@@ -67,15 +71,16 @@ void print_output(int fct_ret_val, String fct_name, unsigned long tStart, unsign
   Serial.print(tStop);
   Serial.println(" us");
 }
+
 // function additions_uint() add two unsigned integers 32766 times
 int additions_uint(){
-  unsigned int sum = 0;
+  //unsigned int sum = 0;
   unsigned int i = 0;
   for (i=0; i<32766; i++)
   {
-    sum = i+i;
+    usum = usum + i;
     #if DEBUG == 1
-    Serial.println(sum);
+    Serial.println(usum);
     #endif
   }
   return i;
@@ -83,11 +88,11 @@ int additions_uint(){
 
 // function additions_int() add two signed integers 32766 times
 int additions_int(){
-  int sum = 0;
+  //int sum = 0;
   int i = 0;
   for (i=0; i<32766; i++)
   {
-    sum = i+i;
+    sum = sum + i;
     #if DEBUG == 1
     Serial.println(sum);
     #endif
@@ -97,15 +102,15 @@ int additions_int(){
 
 // function additions_int() add two float 32766 times
 int additions_float(){
-  float sum = 0;
+  //float sum = 0;
   int i = 0;
   float j = 0;
   for (i=0; i<32766; i++)
   {
     j=i;
-    sum = j+j;
+    fsum = fsum + j;
     #if DEBUG == 1
-    Serial.println(sum);
+    Serial.println(fsum);
     #endif
   }
   return i;
