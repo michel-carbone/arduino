@@ -7,9 +7,9 @@ Michel Carbone, September 2018
 #define DEBUG 0 // 1 = debug by serial print values
 
 // variables for timing calculation
-long tStart = 0;    // time in us before calculation
-long tStop = 0;     // time in us after calculation 
-long tTime = 0;     // time between tStart and tStop
+unsigned long tStart = 0;    // time in us before calculation
+unsigned long tStop = 0;     // time in us after calculation 
+unsigned long tTime = 0;     // time between tStart and tStop
 
 // function setup()
 // is call automaticaly at startup and init all libraries and ports if needed 
@@ -25,19 +25,19 @@ void setup() {
   tStart = micros();
   int ret_val = additions_uint();
   tStop = micros();
-  print_output(ret_val, "additions_uint");
+  print_output(ret_val, "additions_uint", tStart, tStop);
   
   // test additions_int()
   tStart = micros();
   ret_val = additions_int();
   tStop = micros(); // measure stop time before call of function...
-  print_output(ret_val, "additions_int");
+  print_output(ret_val, "additions_int", tStart, tStop);
 
   // test additions_float()
   tStart = micros();
   ret_val = additions_float();
   tStop = micros(); // measure stop time before call of function...
-  print_output(ret_val, "additions_float");
+  print_output(ret_val, "additions_float", tStart, tStop);
 }
 
 // function loop()
@@ -51,7 +51,8 @@ void loop() {
 
 // function print_output(int , String)
 // calc stop time and duration and print results to console
-void print_output(int fct_ret_val, String fct_name){
+void print_output(int fct_ret_val, String fct_name, unsigned long tStart, unsigned long tStop){
+  unsigned long tTime = 0;
   //tStop = micros(); // removed here because call to function seems to introduce a delay of 20us TBC
   tTime = tStop-tStart;
   Serial.print("Time for ");
