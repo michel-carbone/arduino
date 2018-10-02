@@ -9,12 +9,16 @@ Michel Carbone, September 2018
 // loop count in each test
 const int LOOP_COUNT = 10000;
 
+// variable for function return
+int ret_val = 0;
+
 // variables for timing calculation
 unsigned long tStart = 0;    // time in us before calculation
 unsigned long tStop = 0;     // time in us after calculation 
 unsigned long tTime = 0;     // time between tStart and tStop
 
 // variables for sum result
+byte bsum = 0;
 unsigned int usum = 0;
 int sum = 0;
 float fsum = 0;
@@ -30,9 +34,15 @@ void setup() {
   // say hello world to check connection to console
   Serial.println("Running Calculus_benchmark...");
   
+  // test additions_byte()
+  tStart = micros();
+  ret_val = additions_byte();
+  tStop = micros();
+  print_output(ret_val, "additions_byte", tStart, tStop);
+  
   // test additions_uint()
   tStart = micros();
-  int ret_val = additions_uint();
+  ret_val = additions_uint();
   tStop = micros();
   print_output(ret_val, "additions_uint", tStart, tStop);
   
@@ -83,6 +93,21 @@ void print_output(int fct_ret_val, String fct_name, unsigned long tStart, unsign
   Serial.print(tStop);
   Serial.println(" us");
 }
+
+// function additions_byte() add two bytes LOOP_COUNT times
+int additions_byte(){
+  //unsigned int sum = 0;
+  unsigned int i = 0;
+  for (i=0; i < LOOP_COUNT; i++)
+  {
+    bsum = bsum + i;
+    #if DEBUG == 1
+    Serial.println(bsum);
+    #endif
+  }
+  return i;
+}
+
 
 // function additions_uint() add two unsigned integers LOOP_COUNT times
 int additions_uint(){
