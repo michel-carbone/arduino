@@ -34,17 +34,47 @@ void setup() {
   // say hello world to check connection to console
   Serial.println("Running Calculus_benchmark...");
   
+  // BYTE SECTION
+  // ============
+  Serial.println("Tests with bytes");
+  
   // test additions_byte()
   tStart = micros();
   ret_val = additions_byte();
   tStop = micros();
   print_output(ret_val, "additions_byte", tStart, tStop);
   
+  // test substract_byte()
+  tStart = micros();
+  ret_val = substract_byte();
+  tStop = micros();
+  print_output(ret_val, "substract_byte", tStart, tStop);
+  
+  // test multiply_byte()
+  tStart = micros();
+  ret_val = multiply_byte();
+  tStop = micros();
+  print_output(ret_val, "multiply_byte", tStart, tStop);
+  
+  // test divide_byte()
+  tStart = micros();
+  ret_val = divide_byte();
+  tStop = micros();
+  print_output(ret_val, "divide_byte", tStart, tStop);
+  
+  // UINT SECTION
+  // ============
+  Serial.println("Tests with unsigned integer");
+  
   // test additions_uint()
   tStart = micros();
   ret_val = additions_uint();
   tStop = micros();
   print_output(ret_val, "additions_uint", tStart, tStop);
+
+  // INT SECTION
+  // ===========
+  Serial.println("Tests with signed integer");
   
   // test additions_int()
   tStart = micros();
@@ -52,12 +82,20 @@ void setup() {
   tStop = micros(); // measure stop time before call of function...
   print_output(ret_val, "additions_int", tStart, tStop);
 
+  // FLOAT SECTION
+  // =============
+  Serial.println("Tests with floats");
+  
   // test additions_float()
   tStart = micros();
   ret_val = additions_float();
   tStop = micros(); // measure stop time before call of function...
   print_output(ret_val, "additions_float", tStart, tStop);
 
+  // DOUBLE SECTION
+  // ==============
+  Serial.println("Tests with doubles");
+  
   // test additions_double()
   // NOTE: double is an alias for float on 8-bits processors and give the same result!
   tStart = micros();
@@ -108,6 +146,49 @@ int additions_byte(){
   return i;
 }
 
+// function substract_byte() add two bytes LOOP_COUNT times
+int substract_byte(){
+  //unsigned int sum = 0;
+  unsigned int i = 0;
+  for (i=0; i < LOOP_COUNT; i++)
+  {
+    bsum = bsum - i;
+    #if DEBUG == 1
+    Serial.println(bsum);
+    #endif
+  }
+  return i;
+}
+
+// function multiply_byte() multiply two bytes LOOP_COUNT times
+int multiply_byte(){
+  //unsigned int sum = 0;
+  int i = 0;  // loop pointer
+  bsum = 1;
+  for (i=0; i < LOOP_COUNT; i++)
+  {
+    bsum = i * bsum;
+    #if DEBUG == 1
+    Serial.println(bsum);
+    #endif
+  }
+  return i;
+}
+
+// function divide_byte() divide two bytes LOOP_COUNT times
+int divide_byte(){
+  //unsigned int sum = 0;
+  int i = 0;
+  for (i=0; i < LOOP_COUNT; i++)
+  {
+    bsum = i;
+    bsum = bsum/i;
+    #if DEBUG == 1
+    Serial.println(bsum);
+    #endif
+  }
+  return i;
+}
 
 // function additions_uint() add two unsigned integers LOOP_COUNT times
 int additions_uint(){
