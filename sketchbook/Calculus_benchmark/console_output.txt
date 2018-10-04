@@ -13,12 +13,36 @@ tStart: 26976 us, tStop: 170268 us
 Tests with unsigned integer
 Time for additions_uint() in (us): 6188; number of loop:10000
 tStart: 175592 us, tStop: 181780 us
+Time for substract_uint() in (us): 6188; number of loop:10000
+tStart: 184820 us, tStop: 191008 us
+Time for multiply_uint() in (us): 11852; number of loop:10000
+tStart: 194044 us, tStop: 205896 us
+Time for divide_uint() in (us): 131328; number of loop:10000
+tStart: 208932 us, tStop: 340260 us
 Tests with signed integer
 Time for additions_int() in (us): 6188; number of loop:10000
-tStart: 187108 us, tStop: 193296 us
+tStart: 345500 us, tStop: 351688 us
+Time for substract_int() in (us): 6188; number of loop:10000
+tStart: 354640 us, tStop: 360828 us
+Time for multiply_int() in (us): 11844; number of loop:10000
+tStart: 363780 us, tStop: 375624 us
+Time for divide_int() in (us): 143276; number of loop:10000
+tStart: 378576 us, tStop: 521852 us
 Tests with floats
 Time for additions_float() in (us): 120700; number of loop:10000
-tStart: 197860 us, tStop: 318560 us
+tStart: 526328 us, tStop: 647028 us
+Time for substract_float() in (us): 127576; number of loop:10000
+tStart: 650324 us, tStop: 777900 us
+Time for multiply_float() in (us): 105404; number of loop:10000
+tStart: 781196 us, tStop: 886600 us
+Time for divide_float() in (us): 322248; number of loop:10000
+tStart: 889808 us, tStop: 1212056 us
 Tests with doubles
 Time for additions_double() in (us): 120700; number of loop:10000
-tStart: 323548 us, tStop: 444248 us
+tStart: 1216876 us, tStop: 1337576 us
+Time for substract_double() in (us): 127584; number of loop:10000
+tStart: 1341124 us, tStop: 1468708 us
+Time for multiply_double() in (us): 105404; number of loop:10000
+tStart: 1472256 us, tStop: 1577660 us
+Time for divide_double() in (us): 322244; number of loop:10000
+tStart: 1581124 us, tStop: 1903368 us
