@@ -8,13 +8,15 @@ int A2value = 0;
 int A3value = 0;
 int A4value = 0;
 int A5value = 0;
+int A6value = 0;
+int A7value = 0;
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.print("Readings from analog channels 0-5");
-  Serial.print("\n\n");
-  Serial.print("A0\tA1\tA2\tA3\tA4\tA5\n\n");
+  Serial.begin(1000000);
+  Serial.print("Readings from analog channels 0-7");
+  Serial.print("\n");
+  Serial.print("micros\tA0\tA1\tA2\tA3\tA4\tA5\tA6\tA7\n");
 
 }
 
@@ -26,7 +28,11 @@ void loop() {
   A3value = analogRead(A3);
   A4value = analogRead(A4);
   A5value = analogRead(A5);
+  A6value = analogRead(A6);
+  A7value = analogRead(A7);
   
+  Serial.print(micros());
+  Serial.print('\t');
   Serial.print(A0value);
   Serial.print('\t');
   Serial.print(A1value);
@@ -38,7 +44,11 @@ void loop() {
   Serial.print(A4value);
   Serial.print('\t');
   Serial.print(A5value);
+  Serial.print('\t');
+  Serial.print(A6value);
+  Serial.print('\t');
+  Serial.print(A7value);
   Serial.print('\n');
-  delay(3000);
+  delay(10);
   
 }
